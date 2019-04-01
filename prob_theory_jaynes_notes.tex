@@ -1,0 +1,321 @@
+\documentclass[9pt, letterpaper]{article}
+\usepackage[letterpaper, margin=21mm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mathspec}
+\setmainfont{FreeSans}[
+    Path=fonts/,
+    BoldFont=FreeSansBold,
+    ItalicFont=FreeSansOblique,
+    BoldItalicFont=FreeSansBoldOblique
+]
+\setmathrm[Path=fonts/]{FreeSans}
+
+% \usepackage[round]{natbib}
+% \usepackage{morefloats}
+% \usepackage{enumitem}
+% \usepackage{graphicx}
+% \usepackage{float}
+% \usepackage{sidecap}
+% \usepackage{wrapfig}
+% \usepackage{xcolor}
+% \definecolor{blue}{HTML}{114477}
+% \definecolor{purple}{HTML}{440154}
+% \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=purple]{hyperref}
+% \usepackage{textcomp}
+% \usepackage{caption}
+% \captionsetup{font=footnotesize, singlelinecheck=off}
+% \usepackage{lipsum}
+% \usepackage{wrapfig}
+
+% \setlength\intextsep{4pt}
+
+\begin{document}
+
+\section{Plausible reasoning}
+
+\subsection{Deductive and plausible reasoning}
+
+\begin{itemize}
+    \begin{item}
+        \textbf{Deductive reasoning} can be broken down into a \textbf{strong syllogism} (logical argument)
+        \begin{align*}
+            &\text{if } A \text{ is true, then } B \text{ is true} \\
+            &\frac{A \text{ is true}}{\text{therefore, } B \text{ is true}}
+        \end{align*}
+        and its inverse:
+        \begin{align*}
+            &\text{if } A \text{ is true, then } B \text{ is true} \\
+            &\frac{B \text{ is false}}{\text{therefore, } A \text{ is false.}}
+        \end{align*}
+    \end{item}
+    \begin{item}
+        In almost all situations, we do not have the right information to allow this kind of reasoning, so we fall back on \textbf{weaker syllogisms}:
+         \begin{align*}
+             &\text{if } A \text{ is true, then } B \text{ is true} \\
+             &\frac{B \text{ is true}}{\text{therefore, } A \text{ becomes more plausible}}
+         \end{align*}
+    \end{item}
+    \item{`If $A$ then $B$' expresses $B$ only as a \textbf{logical} consequence of $A$, not necessarily a causal, physical consequence:}
+        \begin{itemize}
+            \item{rain at 10 AM does not cause clouds at 9:45 AM}
+            \item{the logical connection is not in the uncertain causal direction (clouds $\Rightarrow$ rain), but the certain, though noncausal direction (rain $\Rightarrow$ clouds)}
+        \end{itemize}
+    \begin{item}
+        another weak syllogism:
+        \begin{align*}
+             &\text{if } A \text{ is true, then } B \text{ is true} \\
+             &\frac{A \text{ is false}}{\text{therefore, } B \text{ becomes less plausible}}
+        \end{align*}
+    \end{item}
+    \begin{item}
+        a still weaker syllogism:
+        \begin{align*}
+             &\text{if } A \text{ is true, then } B \text{ becomes more plausible} \\
+             &\frac{B \text{ is true}}{\text{therefore, } A \text{ becomes more plausible}}
+        \end{align*}
+    \end{item}
+    \item{in doing plausible reasoning, the brain not only decides whether something becomes more or less plausible, but also the \textit{degree} of plausibility}
+        \begin{itemize}
+            \item{we depend very much on \textbf{prior information} (aka `common sense') when evaluating the degree of plausibility of a new problem}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Analogies with physical theories}
+
+\subsection{The thinking computer}
+
+How could we build a machine which would carry out useful plausible reasoning, following clearly defined principles expressing an idealized common sense?
+
+\subsection{Introducting the robot}
+
+\begin{itemize}
+    \item{Our robot will reason about \textbf{propositions} $\left\{A, B, C, \text{etc.}\right\}$}
+        \begin{itemize}
+            \item{any proposition must have an unambiguous meaning and must be of the simple, definite logical type (i.e. Boolean, true/false)}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Boolean algebra}
+
+\begin{itemize}
+    \item{\textbf{logical product} or \textbf{conjunction}, denoted $AB$}
+        \begin{itemize}
+            \item{both $A$ and $B$ are true (logical AND)}
+        \end{itemize}
+    \item{\textbf{logical sum} or \textbf{disjunction}, denoted $A + B$}
+        \begin{itemize}
+            \item{at least one of $A$, $B$ is true (logical OR)}
+            \item{$A+B$ is equivalent to $B+A$}
+        \end{itemize}
+    \item{if one of two propositions $A$, $B$ is true iff the other is true, then $A$ and $B$ have the same \textbf{truth value}, denoted $A = B$}
+        \begin{itemize}
+            \item{a primitive axiom of plausible reasoning: two propositions with the same truth value are equally plausible}
+        \end{itemize}
+    \item{parentheses are used as in ordinary algebra, to indicate the order in which propositions are to be combined}
+        \begin{itemize}
+            \item{in absence of parentheses, normal order of operations applies}
+        \end{itemize}
+    \item{the \textbf{denial} of a proposition:}
+        \begin{itemize}
+            \item{$\overline{A} \equiv A \text{ is false}$}
+            \item{$A = \overline{A} \text{ is false}$}
+            \begin{item}{Care is needed in unambiguous use of the bar:}
+                \begin{align*}
+                    \overline{AB} &= AB \text{ is false;} \\
+                    \bar{A} \bar{B} &= \text{both } A \text{ and } B \text{ are false}
+                \end{align*}
+            \end{item}
+        \end{itemize}
+    \begin{item}
+        Boolean algebra identities:
+        \begin{align*}
+            \text{idempotence:}
+                &\begin{cases}
+                    AA=A \\
+                    A+A=A
+            \end{cases} \\
+            \text{commutativity:}
+                &\begin{cases}
+                    AB=BA \\
+                    A+B=B+A
+            \end{cases} \\
+            \text{associativity:}
+                &\begin{cases}
+                    A(BC) = (AB)C = ABC \\
+                    A+(B+C) = (A+B)+C = A+B+C
+            \end{cases} \\
+            \text{distributivity:}
+                &\begin{cases}
+                    A(B+C) = AB+AC \\
+                    A + (BC) = (A+B)(A+C)
+            \end{cases} \\
+            \text{duality:}
+                &\begin{cases}
+                \text{If } C=AB, \text{ then } \overline{C} = \overline{A} + \overline{B} \\
+                \text{If } D=A+B, \text{ then } \overline{D} = \bar{A} \bar{B}
+            \end{cases} \\
+        \end{align*}
+        \begin{itemize}
+            \begin{item}
+                By applying the basic identities, further relations can be proven:
+                \begin{align*}
+                    \text{Let } \overline{B} &= AD \\
+                    A \overline{B} &= AAD \\
+                    A \overline{B} &= AD && \text{idempotence} \\
+                    A \overline{B} &= \overline{B} && \text{def. $\overline{B}$} \\
+                    A \overline{B} &= \overline{B} + \overline{B} && \text{idempotence} \\
+                    A \overline{B} &= \overline{B} + A\overline{B} && \text{def. $\overline{B}$} \\
+                    A \overline{B} &= \bar{B}\bar{B} + A\overline{B} && \text{idempotence} \\
+                    A \overline{B} &= \left(\overline{B} + A\right)\overline{B} && \text{distributivity} \\
+                    A &= \overline{B} + A \\
+                    B\overline{A} &= \overline{A} && \text{duality} \\
+                \end{align*}
+                Therefore, if $\overline{B}=AD$, then $A\overline{B}=\overline{B}$, and $B\overline{A}=\overline{A}$.
+            \end{item}
+        \end{itemize}
+    \end{item}
+    \begin{item}
+        The proposition $A \Rightarrow B$ ($A$ implies $B$) does not assert that either $A$ or $B$ is true
+        \begin{itemize}
+            \item{it means only that $A \overline{B}$ is false, or equivalently, $\left(\overline{A} + B \right)$ is true}
+            \item{this can also be written as the logical equation $A=AB$}
+                \begin{itemize}
+                    \item{i.e., given $A \Rightarrow B$, if $A$ is true, then $B$ must be true; or, if $B$ is false then $A$ must be false}
+                    \item{This is what was stated in the strong syllogisms}
+                    \item{However, if $A$ is false, $A \Rightarrow B$ says nothing about $B$, and if $B$ is true, $A \Rightarrow B$ says nothing about $A$}
+                        \begin{itemize}
+                            \item{these are the cases in which the weak syllogisms \textit{do} say something}
+                            \item{plausible reasoning based on weak syllogisms is not a `weakened' form of logic; it is an \textit{extension} of logic with content not present in conventional deductive logic}
+                        \end{itemize}
+                \end{itemize}
+        \end{itemize}
+    \end{item}
+    \begin{item}
+        In formal logic, `$A$ implies $B$' means only that $A$ and $AB$ have the same truth value
+        \begin{itemize}
+            \item{in general, whether $B$ is logically deducible from $A$ depends not only on $A$ and $B$, but the totality of propositions $\left(A, A^\prime, A^{\prime\prime}, ...  \right)$ accepted as true and therefore available for use in the deduction}
+        \end{itemize}
+    \end{item}
+\end{itemize}
+
+\subsection{Adequate sets of operations}
+
+\begin{itemize}
+    \item{Any number of propositions can be generated using the logical product (conjunction), logical sum (disjunction), implication, and negation operations}
+        \begin{itemize}
+            \item{How large is the set of new propositions? Is it finite/infinite?}
+            \item{Are these four operations sufficient to generate every proposition?}
+            \item{Are any operations dispensable for generating every proposition?}
+        \end{itemize}
+    \begin{item}
+        Logical NAND is defined as the negation of AND:
+        \begin{align*}
+            A \uparrow B \equiv \overline{AB} = \overline{A} + \overline{B}
+        \end{align*}
+        Every logic function can be constructed with NAND alone:
+        \begin{align*}
+            & \overline{A} \\
+            = &\overline{A} + \overline{A} && \text{idempotence} \\
+            = &A \uparrow A && \text{def. NAND}
+        \end{align*}
+        \begin{align*}
+            & AB \\
+            = &AB + AB && \text{idempotence} \\
+            = &\overline{AB} \uparrow \overline{AB} && \text{def. NAND} \\
+            = &\left(A \uparrow B \right) \uparrow \left(A \uparrow B \right) && \text{def. NAND}
+        \end{align*}
+        \begin{align*}
+            & A+B \\
+            = & AA+BB && \text{idempotence} \\
+            = & \overline{AA} \uparrow \overline{BB} && \text{def. NAND} \\
+            = &\left(A \uparrow A \right) \uparrow \left(B \uparrow B \right) && \text{def. NAND}
+        \end{align*}
+    \end{item}
+    \begin{item}
+        Logical NOR is defined as the negation of OR:
+        \begin{align*}
+            A \downarrow B \equiv \overline{A + B} = \bar{A} \bar{B} \\
+        \end{align*}
+        Every logic function can also be constructed with NOR alone:
+        \begin{align*}
+            & \overline{A} \\
+            = &\bar{A} \bar{A} && \text{idempotence} \\
+            = &A \downarrow A && \text{def. NOR}
+        \end{align*}
+        \begin{align*}
+            & AB \\
+            = &\left(A+A\right)\left(B+B\right) && \text{idempotence} \\
+            = &\left(\overline{A+A} \right) \downarrow \left(\overline{B+B} \right) && \text{def. NOR}\\
+            = &\left(A \downarrow A\right) \downarrow \left(B \downarrow B\right) && \text{def. NOR}\\
+        \end{align*}
+        \begin{align*}
+            &A+B \\
+            =&\left(A+B \right) \left(A+B \right) && \text{idempotence} \\
+            =&\left(\overline{A+B} \right) \downarrow \left(\overline{A+B} \right) && \text{def. NOR} \\
+            =&\left(A \downarrow B\right) \downarrow \left(A \downarrow B\right) && \text{def. NOR} \\
+        \end{align*}
+    \end{item}
+\end{itemize}
+
+\subsection{The basic desiderata}
+
+\begin{description}
+    \item[I] Degrees of plausibility are represented by real numbers
+        \begin{itemize}
+            \item{We adopt a nonessential, but natural, convention: greater plausibility shall correspond to a greater number}
+            \item{It is also useful to assume continuity, i.e. an infinitesimally greater plausibility shall correspond to an infinitesimally greater number}
+            \item{The plausibility assigned to a proposition $A$ will, in general, depend on the truth value of proposition $B$, denoted $A|B$}
+                \begin{itemize}
+                    \item{this is `the conditional plausibility that $A$ is true, given that $B$ is true, or $A$ given $B$}
+                    \item{We avoid impossible problems, i.e. when $A|BC$ is specified, it is understood that $B$ and $C$ are compatible propositions}
+                \end{itemize}
+        \end{itemize}
+    \item[II] Qualitative correspondence with common sense
+        \begin{itemize}
+            \item{if old information $C$ is updated to $C^\prime$ such that the plausibility for $A$ is increased but the plausibility for $B$ is unchanged, i.e, $\left(A|C^\prime \right) > \left(A|C \right)$ and $\left(B|AC^\prime \right) = \left(B|AC \right)$, then the plausibility that both $A$ and $B$ are true must increase, and the plausibility that $A$ is false must decrease:}
+                \begin{align*}
+                    \left(AB|C^\prime \right) & \geq \left(AB|C \right) & \left(\overline{A} | C^\prime \right) &< \left(\overline{A}| C \right)
+                \end{align*}
+        \end{itemize}
+    \item[III] Consistent reasoning
+        \begin{description}
+            \item[IIIa] If a conclusion can be reasoned out in more than one way, then every possible way must lead to the same result.
+            \item[IIIb] All of the evidence relevant to a question is always taken into account. Conclusions are not based on an arbitrary subset of the information.
+            \item[IIIc] Equivalent states of knowledge are represented by equivalent plausibility assignments.
+        \end{description}
+    \item{There is only one set of mathematical operations for manipulating plausibilities that satisfies all of the desiderata listed above.}
+\end{description}
+
+\section{The quantitative rules}
+
+\subsection{The product rule}
+
+\begin{itemize}
+    \item{We seek a consistent rule relating the plausibility of the logical product $AB$ to the plausibilities of $A$ and $B$ separately, in particular $AB|C$}
+        \begin{itemize}
+            \item{The process of deciding that $AB$ is true can be broken down into elementary decisions about $A$ and $B$ separately:}
+                \begin{description}
+                    \item[1)] decide that $B$ is true; $\left(B|C\right)$
+                    \item[2)] having accepted $B$ as true, decide that $A$ is true. $\left(A|BC\right)$
+                \end{description}
+                or equivalently,
+                \begin{description}
+                    \item[1')] decide that $A$ is true; $\left(A|C\right)$
+                    \item[2')] having accepted $A$ as true, decide that $B$ is true. $\left(B|AC\right)$
+                \end{description}
+            \item{For $AB$ to be a true proposition, it is necessary that $B$ is true.}
+                \begin{itemize}
+                    \item{Thus, the plausibility $B|C$ is involved}
+                \end{itemize}
+            \item{If $B$ is true, it is further necessary that $A$ is also true.}
+                \begin{itemize}
+                    \item{Thus, the plausibility $A|BC$ is also involved}
+                \end{itemize}
+            \item{If $B$ is false, then $AB$ is false independently of any knowledge about $A$}
+        \end{itemize}
+\end{itemize}
+
+\end{document}
+
