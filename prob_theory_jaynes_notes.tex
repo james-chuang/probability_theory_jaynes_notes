@@ -293,7 +293,7 @@ How could we build a machine which would carry out useful plausible reasoning, f
 \subsection{The product rule}
 
 \begin{itemize}
-    \item{We seek a consistent rule relating the plausibility of the logical product $AB$ to the plausibilities of $A$ and $B$ separately, in particular $AB|C$}
+    \item{We seek a consistent rule relating the plausibility of the logical product $AB$ to the plausibilities of $A$ and $B$ separately, in particular $AB|C$.}
         \begin{itemize}
             \item{The process of deciding that $AB$ is true can be broken down into elementary decisions about $A$ and $B$ separately:}
                 \begin{description}
@@ -313,8 +313,41 @@ How could we build a machine which would carry out useful plausible reasoning, f
                 \begin{itemize}
                     \item{Thus, the plausibility $A|BC$ is also involved}
                 \end{itemize}
-            \item{If $B$ is false, then $AB$ is false independently of any knowledge about $A$}
+            \item{If $B$ is false, then $AB$ is false independently of any knowledge about $A$, i.e. $A|\overline{B}C$}
+                \begin{itemize}
+                    \item{If $B$ is known, then the plausibility of $A$ is relevant only if $B$ is true.}
+                    \item{Thus, given $B|C$ and $A|BC$, $A|C$ provides no additional information about $AB$.}
+                    \item{Similarly, $A|B$ and $B|A$ are unnecessary, since plausibility in the absence of information $C$ is not relevant to the case where $C$ is known to be true.}
+                \end{itemize}
+            \item{Since the logical product is commutative, i.e. $AB=BA$, $A$ and $B$ can be interchanged in the above statements, i.e. knowledge of $A|C$ and $B|AC$ should return the same plausibility as knowledge of $B|C$ and $A|BC$, due to desideratum IIIa for consistency.}
         \end{itemize}
+    \begin{item}
+        In a concrete statement, $\left(AB|C \right)$ will be some function of $B|C$ and $A|BC$:
+        \begin{align*}
+            \left(AB|C \right) = F \left[\left(A|C \right), \left(B|C \right) \right]
+        \end{align*}
+    \end{item}
+    \begin{item}
+        Now we apply the qualitative requirement (desiderata II): Given a change in prior information $C \rightarrow C^\prime$ such that $B$ becomes more plausible but $A$ does not change,
+        \begin{align*}
+            B|C^\prime &> B|C & A|BC^\prime &= A|BC,
+        \end{align*}
+        then $AB$ must become more plausible, not less:
+        \begin{align*}
+            AB|C^\prime \geq AB|C
+        \end{align*}
+        Similarly, given prior information $C^{\prime\prime}$ such that $B|C^{\prime\prime} = B|C$ and $A|BC^{\prime\prime} > A|BC$, we require that $AB|C^{\prime\prime} \geq AB|C.$
+    \end{item}
+    \begin{item}
+        Furthermore, due to the continuity requirement (desiderata I), $F(x, y)$ must be continuous.
+    \end{item}
+    \begin{item}
+        In summary, $F(x,y)$ must be a continuous monotonic increasing function of both $x$ and $y$. If $F(x,y)$ is assumed to be differentiable (this is not necessary), then
+        \begin{align*}
+            F_1(x,y) \equiv \frac{dF}{dx} & \geq 0 & F_2(x,y) \equiv \frac{dF}{dy} \geq 0,
+        \end{align*}
+        where $F_i$ indicates differentiation w.r.t. the $i$th argument of $F$.
+    \end{item}
 \end{itemize}
 
 \end{document}
